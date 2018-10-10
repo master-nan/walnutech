@@ -18,7 +18,7 @@
 </template>
 <script>
 export default {
-  layout: 'Home',
+  layout: 'home',
   head () {
     let title = '测试测试'
     return {

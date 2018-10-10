@@ -1,7 +1,7 @@
 const pkg = require('./package')
 
 module.exports = {
-  mode: 'universal',
+  // mode: 'universal',
 
   /*
   ** Headers of the page
@@ -86,5 +86,8 @@ module.exports = {
         })
       }
     }
+  },
+  router: {
+    middleware: 'pageExist'
   }
 }
