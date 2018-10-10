@@ -10,7 +10,8 @@ import {
   VIcon,
   VGrid,
   VToolbar,
-  VDivider
+  VDivider,
+  VAvatar
 } from 'vuetify'
 
 import colors from 'vuetify/es5/util/colors'
@@ -30,7 +31,8 @@ Vue.use(Vuetify, {
     VIcon,
     VGrid,
     VToolbar,
-    VDivider
+    VDivider,
+    VAvatar
   },
   theme: {
     primary: '#1976d2', // a color that is not in the material colors palette
