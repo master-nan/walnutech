@@ -1,16 +1,16 @@
 <template lang="pug">
   v-app
-    v-content
-      m-header
-      v-layout
-        //- transition(name="fade-transform" mode="out-in")
-        nuxt
-      m-footer
+    v-layout(v-scroll="onScroll" column align-center justify-center)
+      v-content
+        m-header
+        v-layout
+          //- transition(name="fade-transform" mode="out-in")
+          nuxt
+        m-footer
 </template>
 <script>
 import MHeader from './header'
 import MFooter from './footer'
-
 import Meta from '~/mixins/index'
 
 export default {
@@ -20,14 +20,20 @@ export default {
     MFooter
   },
   data () {
-    return {}
+    return {
+    }
   },
   computed: {
     setting () {
       return this.$store.getters.getSetting
     }
   },
-  methods: {}
+  methods: {
+    onScroll (e) {
+      console.log(111)
+      this.offsetTop = window.pageYOffset || document.documentElement.scrollTop
+    }
+  }
 }
 </script>
 <style>

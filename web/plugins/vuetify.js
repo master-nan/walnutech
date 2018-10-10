@@ -11,12 +11,13 @@ import {
   VGrid,
   VToolbar,
   VDivider,
-  VAvatar
+  VAvatar,
+  VParallax
 } from 'vuetify'
 
 import colors from 'vuetify/es5/util/colors'
 import '@mdi/font/css/materialdesignicons.min.css'
-
+import 'babel-polyfill'
 import Components from '~/components/index'
 
 Vue.use(Vuetify, {
@@ -32,7 +33,8 @@ Vue.use(Vuetify, {
     VGrid,
     VToolbar,
     VDivider,
-    VAvatar
+    VAvatar,
+    VParallax
   },
   theme: {
     primary: '#1976d2', // a color that is not in the material colors palette
