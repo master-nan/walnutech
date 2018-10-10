@@ -10,7 +10,11 @@
 <script>
 import Header from './Header'
 import Footer from './Footer'
+
+import Meta from '~/mixins/index'
+
 export default {
+  mixins: [Meta],
   components: {
     Footer,
     Header

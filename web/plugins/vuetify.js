@@ -9,11 +9,14 @@ import {
   VBtn,
   VIcon,
   VGrid,
-  VToolbar
+  VToolbar,
+  VDivider
 } from 'vuetify'
 
 import colors from 'vuetify/es5/util/colors'
 import '@mdi/font/css/materialdesignicons.min.css'
+
+import Components from '~/components/index'
 
 Vue.use(Vuetify, {
   iconfont: 'md',
@@ -26,7 +29,8 @@ Vue.use(Vuetify, {
     VBtn,
     VIcon,
     VGrid,
-    VToolbar
+    VToolbar,
+    VDivider
   },
   theme: {
     primary: '#1976d2', // a color that is not in the material colors palette
@@ -37,4 +41,8 @@ Vue.use(Vuetify, {
     error: colors.deepOrange.accent4,
     success: colors.green.accent3
   }
+})
+
+Object.keys(Components).forEach(key => {
+  Vue.component(key, Components[key])
 })

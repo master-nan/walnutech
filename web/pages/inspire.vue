@@ -18,6 +18,12 @@
 </template>
 <script>
 export default {
-  layout: 'Home'
+  layout: 'Home',
+  head () {
+    let title = '测试测试'
+    return {
+      title: `${title} - yooooo`
+    }
+  }
 }
 </script>
