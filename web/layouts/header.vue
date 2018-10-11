@@ -5,7 +5,7 @@
         img(src="~/assets/images/logo.png" alt="avatar")
     v-toolbar-title Walnutech
     v-spacer
-    v-btn(icon)
+    v-btn(icon target="_black" href="https://github.com/master-nan/walnutech/stargazers")
       v-icon(size="32px") favorite
     v-btn(icon target="_blank" href="https://github.com/master-nan")
       v-icon(size="32px") mdi-github-circle
