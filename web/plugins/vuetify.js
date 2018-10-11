@@ -12,7 +12,8 @@ import {
   VToolbar,
   VDivider,
   VAvatar,
-  VParallax
+  VParallax,
+  VTooltip
 } from 'vuetify'
 
 import colors from 'vuetify/es5/util/colors'
@@ -34,7 +35,8 @@ Vue.use(Vuetify, {
     VToolbar,
     VDivider,
     VAvatar,
-    VParallax
+    VParallax,
+    VTooltip
   },
   theme: {
     primary: '#1976d2', // a color that is not in the material colors palette

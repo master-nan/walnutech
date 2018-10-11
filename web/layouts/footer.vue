@@ -1,20 +1,30 @@
-<template>
-  <v-footer dark height="auto">
-    <v-card flat tile class="blue darken-1 white--text text-xs-center">
-      <v-card-text>
-        <v-btn v-for="icon in icons" :key="icon" class="mx-3 white--text" icon>
-          <v-icon size="24px">{{ icon }}</v-icon>
-        </v-btn>
-      </v-card-text>
-      <v-card-text class="white--text pt-0">
-        Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-      </v-card-text>
-      <v-divider/>
-      <v-card-text class="white--text">
-        &copy;2018 — <strong>master-nan</strong>
-      </v-card-text>
-    </v-card>
-  </v-footer>
+<template lang="pug">
+  v-footer(dark height="auto")
+    v-card.blue.darken-1.white--text.text-xs-center(width="100%" flat tile)
+      v-card-text
+        v-tooltip(bottom)
+          v-btn.mx-3.white--text(slot="activator" icon target="_blank" href="https://vuejs.org/")
+            v-icon(size="32px") mdi-vuejs
+          span Vue
+        v-tooltip(bottom)
+          v-btn.mx-3.white--text(slot="activator" icon target="_blank" href="https://vuetifyjs.com")
+            v-avatar(size="32" )
+              img(src="/v-alt.svg" alt="avatar")
+          span Vuetify
+        v-tooltip(bottom)
+          v-btn.mx-3.white--text(slot="activator" icon target="_blank" href="https://nuxtjs.org/")
+            v-avatar(size="32" color="grey lighten-4")
+              img(src="/nuxt.png" alt="avatar")
+          span Nuxt
+        v-tooltip(bottom)
+          v-btn.mx-3.white--text(slot="activator" icon target="_blank" href="https://github.com/master-nan/walnutech")
+            v-icon(size="32px") mdi-github-circle
+          span Github
+      v-card-text.white--text.pt-0.px-5
+        slot 本项目为个人网站，采用vue前端框架，使用开箱即用的nuxt解决ssr问题，并结合vuetify解决ui问题。项目相对简单，如需更深层次的应用可以访问上述链接学习相关知识。喜欢本项目的朋友可以到我的github下载源码，欢迎star，如果有bug可以提交issues，谢谢。github上还有两个开源后台项目，同样欢迎下载使用。
+      v-divider
+      v-card-text.white--text &copy;2018 —
+        strong master-nan
 </template>
 <script>
 export default {

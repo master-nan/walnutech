@@ -6,9 +6,9 @@
     v-toolbar-title Walnutech
     v-spacer
     v-btn(icon)
-      v-icon favorite
+      v-icon(size="32px") favorite
     v-btn(icon target="_blank" href="https://github.com/master-nan")
-      v-icon mdi-github-circle
+      v-icon(size="32px") mdi-github-circle
 </template>
 <script>
 export default {
