@@ -1,7 +1,8 @@
 const state = {
   userInfo: [],
   setting: [],
-  moving: false
+  moving: false,
+  up: false
 }
 
 export default state

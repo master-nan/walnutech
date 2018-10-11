@@ -16,6 +16,12 @@ const actions = {
       commit('setMoving', data)
       resolve()
     })
+  },
+  setUp ({commit}, data) {
+    return new Promise(resolve => {
+      commit('setUp', data)
+      resolve()
+    })
   }
 }
 

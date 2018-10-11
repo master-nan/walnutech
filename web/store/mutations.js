@@ -15,6 +15,9 @@ const mutations = {
   },
   setMoving (state, data) {
     state.moving = data
+  },
+  setUp (state, data) {
+    state.up = data
   }
 }
 export default mutations

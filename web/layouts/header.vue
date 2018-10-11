@@ -30,6 +30,11 @@ export default {
       } else {
         this.$store.dispatch('setMoving', false)
       }
+      if (this.offsetTop > 200) {
+        this.$store.dispatch('setUp', true)
+      } else {
+        this.$store.dispatch('setUp', false)
+      }
     }
   },
   mounted () {

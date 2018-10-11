@@ -7,8 +7,8 @@
           //- transition(name="fade-transform" mode="out-in")
           nuxt
         m-footer
-      v-btn.white--text(:class="{ 'show': moving, 'hidden': !moving }" color="red" fixed bottom right fab @click="toTop")
-        v-icon mdi-apple-keyboard-control
+      v-btn.white--text(:class="{ 'show': up, 'hidden': !up }" color="red" fixed bottom right fab @click="$vuetify.goTo(0, {duration: 600,offset: 0,easing: 'easeInOutQuad'})")
+        v-icon mdi-chevron-left
 </template>
 <script>
 import MHeader from './header'
@@ -28,10 +28,14 @@ export default {
   computed: {
     moving () {
       return this.$store.getters.getMoving
+    },
+    up () {
+      return this.$store.getters.getUp
     }
   },
   methods: {
-    toTop () {
+    // vuetify有自带方法不需要用这个了
+    goTop () {
       let distance = document.documentElement.scrollTop || document.body.scrollTop;
       (function jump () {
         // 越接近顶部速度越慢
@@ -51,14 +55,22 @@ export default {
 <style scoped>
 .show{
   transition: all 0.5s;
-  opacity: 1;
+  transform: rotate(90deg) scale(1);
+  -webkit-transform: rotate(90deg) scale(1);
+  -moz-transform: rotate(90deg) scale(1);
+  -ms-transform: rotate(90deg) scale(1);
+  -o-transform: rotate(90deg) scale(1);
 }
 .hidden{
   transition: all 0.5s;
-  opacity: 0;
+  transform: rotate(0deg) scale(0);
+  -webkit-transform: rotate(0deg) scale(0);
+  -moz-transform: rotate(0deg) scale(0);
+  -ms-transform: rotate(0deg) scale(0);
+  -o-transform: rotate(0deg) scale(0);
 }
 
-.fade-transform-leave-active,
+/* .fade-transform-leave-active,
 .fade-transform-enter-active {
   transition: all 0.5s;
 }
@@ -72,5 +84,5 @@ export default {
 }
 .v-navigation-drawer__border {
   left: 299px;
-}
+} */
 </style>
