@@ -1,10 +1,4 @@
 const actions = {
-  setPrivateRouter ({commit}, data) {
-    return new Promise(resolve => {
-      commit('setPrivateRouter', data)
-      resolve()
-    })
-  },
   setUserInfo ({commit}, data) {
     return new Promise(resolve => {
       commit('setUserInfo', data)
@@ -14,6 +8,12 @@ const actions = {
   setSetting ({commit}, data) {
     return new Promise(resolve => {
       commit('setSetting', data)
+      resolve()
+    })
+  },
+  setMoving ({commit}, data) {
+    return new Promise(resolve => {
+      commit('setMoving', data)
       resolve()
     })
   }

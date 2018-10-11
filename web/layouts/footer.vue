@@ -22,9 +22,7 @@ export default {
     icons: [
       'face',
       'mdi-github-circle',
-      'add',
-      'edit',
-      'delete'
+      'add'
     ]
   })
 }

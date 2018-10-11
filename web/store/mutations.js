@@ -1,7 +1,4 @@
 const mutations = {
-  setPrivateRouter (state, data) {
-    state.privateRouter = []
-  },
   setUserInfo (state, data) {
     if (data) {
       state.userInfo = data
@@ -15,6 +12,9 @@ const mutations = {
     } else {
       state.setting = []
     }
+  },
+  setMoving (state, data) {
+    state.moving = data
   }
 }
 export default mutations

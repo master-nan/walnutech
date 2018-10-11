@@ -1,12 +1,10 @@
 <template lang="pug">
-  v-toolbar(style="background-color:rgba(155,0,0,0.9);" dark :fixed="fixed")
+  v-toolbar(:class="{ 'fix': moving, 'dolly': !moving }" :flat="!moving" dark fixed)
     router-link(to="/")
       v-avatar(:tile="true" size="58" color="grey lighten-4")
         img(src="~/assets/images/logo.png" alt="avatar")
     v-toolbar-title Walnutech
     v-spacer
-    v-btn(icon)
-      v-icon search
     v-btn(icon)
       v-icon favorite
     v-btn(icon target="_blank" href="https://github.com/master-nan")
@@ -14,10 +12,36 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    fixed: true
-  }),
+  data () {
+    return {
+      offsetTop: 0
+    }
+  },
+  computed: {
+    moving () {
+      return this.$store.getters.getMoving
+    }
+  },
   methods: {
+    onScroll (e) {
+      this.offsetTop = document.documentElement.scrollTop
+      if (this.offsetTop > 3) {
+        this.$store.dispatch('setMoving', true)
+      } else {
+        this.$store.dispatch('setMoving', false)
+      }
+    }
+  },
+  mounted () {
+    window.addEventListener('scroll', this.onScroll, true)
   }
 }
 </script>
+<style lang="less" scoped>
+.fix{
+  background-color:rgba(25,118,210,0.8) !important;
+}
+.dolly{
+  background-color:rgba(0,0,0,0) !important;
+}
+</style>

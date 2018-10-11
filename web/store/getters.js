@@ -1,7 +1,7 @@
 const getters = {
-  getPrivateRouter: state => state.privateRouter,
   getUserInfo: state => state.userInfo,
-  getSetting: state => state.setting
+  getSetting: state => state.setting,
+  getMoving: state => state.moving
 }
 
 export default getters

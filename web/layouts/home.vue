@@ -1,12 +1,14 @@
 <template lang="pug">
   v-app
-    v-layout(v-scroll="onScroll" column align-center justify-center)
+    v-layout
       v-content
         m-header
         v-layout
           //- transition(name="fade-transform" mode="out-in")
           nuxt
         m-footer
+      v-btn.white--text(:class="{ 'show': moving, 'hidden': !moving }" color="red" fixed bottom right fab @click="toTop")
+        v-icon mdi-apple-keyboard-control
 </template>
 <script>
 import MHeader from './header'
@@ -24,19 +26,38 @@ export default {
     }
   },
   computed: {
-    setting () {
-      return this.$store.getters.getSetting
+    moving () {
+      return this.$store.getters.getMoving
     }
   },
   methods: {
-    onScroll (e) {
-      console.log(111)
-      this.offsetTop = window.pageYOffset || document.documentElement.scrollTop
+    toTop () {
+      let distance = document.documentElement.scrollTop || document.body.scrollTop;
+      (function jump () {
+        // 越接近顶部速度越慢
+        let step = distance / 5
+        if (distance > 1) {
+          distance -= step
+          window.scrollTo(0, distance)
+          setTimeout(jump, 20)
+        } else {
+          window.scrollTo(0, 0)
+        }
+      })()
     }
   }
 }
 </script>
-<style>
+<style scoped>
+.show{
+  transition: all 0.5s;
+  opacity: 1;
+}
+.hidden{
+  transition: all 0.5s;
+  opacity: 0;
+}
+
 .fade-transform-leave-active,
 .fade-transform-enter-active {
   transition: all 0.5s;
