@@ -1,6 +1,6 @@
 <template lang="pug">
   v-app
-    v-layout
+    v-layout(@contextmenu="rightBan")
       v-content
         m-header
         v-layout
@@ -34,6 +34,9 @@ export default {
     }
   },
   methods: {
+    rightBan (e) {
+      e.preventDefault()
+    },
     // vuetify有自带方法不需要用这个了
     goTop () {
       let distance = document.documentElement.scrollTop || document.body.scrollTop;
