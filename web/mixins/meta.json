@@ -1,12 +1,12 @@
 {
   "/": {
-    "title": "Vue.js 2 Material Component Framework",
-    "description": "My Vuetify.js Project",
-    "keywords": "vue 2.0, vuetify"
+    "title": "Walnutech",
+    "description": "My Walnutech Project",
+    "keywords": "vue, vuetify, nuxt, vuex, vue-router, walnutech"
   },
   "/inspire": {
     "title": "Create something amazing",
-    "description": "111",
-    "keywords": "222"
+    "description": "vue, vuetify, nuxt, vuex, vue-router, walnutech",
+    "keywords": "vue, vuetify, nuxt, vuex, vue-router, walnutech"
   }
 }

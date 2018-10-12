@@ -62,32 +62,32 @@
               v-layout(row wrap)
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/scenery/1.JPG" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/scenery/2.JPG" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/scenery/3.JPG" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/scenery/4.JPG" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/scenery/5.JPG" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/scenery/6.JPG" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="~/assets/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
     section
@@ -123,10 +123,20 @@
                       a(style="text-decoration: underline;color:#1976d2" target="_blank" href="https://weibo.com/u/1853866487") 微 博
 </template>
 <script>
+import api from '~/api'
 export default {
   layout: 'home',
+  async asyncData ({params}) {
+    let res = await api.index()
+    if (res.code === 200) {
+      return {
+        data: res.data
+      }
+    }
+  },
   data () {
     return {
+      data: []
     }
   },
   components: {

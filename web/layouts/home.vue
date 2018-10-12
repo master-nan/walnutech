@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     rightBan (e) {
-      e.preventDefault()
+      // e.preventDefault()
     },
     // vuetify有自带方法不需要用这个了
     goTop () {
