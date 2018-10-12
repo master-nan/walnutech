@@ -18,6 +18,9 @@ const mutations = {
   },
   setUp (state, data) {
     state.up = data
+  },
+  setLang (state, data) {
+    state.lang = data
   }
 }
 export default mutations

@@ -22,6 +22,12 @@ const actions = {
       commit('setUp', data)
       resolve()
     })
+  },
+  setLang ({commit}, data) {
+    return new Promise(resolve => {
+      commit('setLang', data)
+      resolve()
+    })
   }
 }
 

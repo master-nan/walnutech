@@ -5,6 +5,12 @@
         img(src="~/assets/images/logo.png" alt="avatar")
     v-toolbar-title Walnutech
     v-spacer
+    v-menu(transition="slide-x-transition" bottom offset-y)
+      v-btn(icon dark slot="activator")
+        v-icon(size="32px" dark) language
+      v-list
+        v-list-tile(v-for="(lang,i) in langs" :key="i"  @click="changeLocale(lang.key)")
+          v-list-tile-title {{lang.value}}
     v-btn(icon target="_black" href="https://github.com/master-nan/walnutech/stargazers")
       v-icon(size="32px") favorite
     v-btn(icon target="_blank" href="https://github.com/master-nan")
@@ -14,7 +20,11 @@
 export default {
   data () {
     return {
-      offsetTop: 0
+      offsetTop: 0,
+      langs: [
+        { key: 'zh-CN', value: '简体中文' },
+        { key: 'en-US', value: 'Englinsh' }
+      ]
     }
   },
   computed: {
@@ -23,6 +33,13 @@ export default {
     }
   },
   methods: {
+    changeLocale (e) {
+      if (e === 'zh-CN') {
+        this.$router.push(this.$route.fullPath.replace(/^\/[^\\/]+/, ''))
+      } else {
+        this.$router.push('/' + e + this.$route.fullPath)
+      }
+    },
     onScroll (e) {
       this.offsetTop = document.documentElement.scrollTop
       if (this.offsetTop > 3) {
