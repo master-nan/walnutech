@@ -34,6 +34,9 @@ export default {
   },
   methods: {
     changeLocale (e) {
+      if (this.$store.state.lang === e) {
+        return false
+      }
       if (e === 'zh-CN') {
         this.$router.push(this.$route.fullPath.replace(/^\/[^\\/]+/, ''))
       } else {

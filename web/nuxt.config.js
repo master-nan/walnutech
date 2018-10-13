@@ -90,6 +90,6 @@ module.exports = {
     }
   },
   router: {
-    middleware: 'pageExist'
+    middleware: 'router'
   }
 }

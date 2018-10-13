@@ -1,6 +1,7 @@
-module.exports = {
+const zh = {
   title: {
-    index: '首页'
+    index: '首页',
+    none: '404'
   },
   description: {
     index: '首页的简介'
@@ -9,3 +10,4 @@ module.exports = {
     sentMessage: '发送邮件'
   }
 }
+export default zh

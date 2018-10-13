@@ -1,6 +1,7 @@
-module.exports = {
+const en = {
   title: {
-    index: 'index'
+    index: 'index',
+    none: 'ffff'
   },
   description: {
     index: 'index description'
@@ -9,3 +10,4 @@ module.exports = {
     sentMessage: 'sent message'
   }
 }
+export default en

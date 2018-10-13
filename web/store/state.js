@@ -3,7 +3,7 @@ const state = {
   setting: [],
   moving: false,
   up: false,
-  lang: 'en-US',
+  lang: 'zh-CN',
   langs: ['zh-CN', 'en-US']
 }
 

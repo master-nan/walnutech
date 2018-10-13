@@ -1,10 +1,11 @@
 <template lang="pug">
   v-container
-    div 404 页面不存在
+    div {{ $t('title.none') }}
     v-btn(dark @click="goback" color="primary") 返回
 </template>
 <script>
 export default {
+  layout: 'home',
   data () {
     return {
 
@@ -12,7 +13,8 @@ export default {
   },
   methods: {
     goback () {
-      this.$router.go(-1)
+      const path = '/' + this.$store.state.lang + '/'
+      this.$router.push(path)
     }
   }
 }
