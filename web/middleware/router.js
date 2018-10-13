@@ -1,10 +1,3 @@
-// export default function ({ route, redirect }) {
-//   // 没有匹配到的组件，即404页面
-//   if (route.matched.length === 0) {
-//     redirect('/404')
-//   }
-// }
-
 export default function ({ isHMR, app, store, route, params, error, redirect }) {
   const defaultLocale = app.i18n.fallbackLocale
   const lang = params.lang || defaultLocale

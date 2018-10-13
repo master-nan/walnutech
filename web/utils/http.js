@@ -3,7 +3,7 @@ import qs from 'qs'
 import util from './index.js'
 import cookie from 'js-cookie'
 
-let baseURL = 'http://localhost:9001/'
+let baseURL = 'http://localhost:9002/'
 
 let request = async (requestMethod = 'get', requestConf) => {
   requestConf.headers = {}
