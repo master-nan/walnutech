@@ -16,14 +16,11 @@ const messages = {
 
 export default ({ app, store }) => {
   const i18n = new VueI18n({
-    locale: store.state.lang, // set locale
+    locale: store.state.lang,
     fallbackLocale: 'zh-CN',
-    messages // set locale messages
+    messages
   })
-  // Set i18n instance on app
-  // This way we can use it in middleware and pages asyncData/fetch
   app.i18n = i18n
-
   app.i18n.path = (link) => {
     if (app.i18n.locale === app.i18n.fallbackLocale) {
       return `/${link}`
