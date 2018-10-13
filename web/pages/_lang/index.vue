@@ -1,9 +1,9 @@
 <template lang="pug">
   v-content
     section
-      v-parallax(src="/hero.jpeg" height="600")
+      v-parallax(src="/home.jpg" height="600")
         v-layout.white--text(column align-center justify-center)
-          img(src="~/assets/images/logo.png" alt="Vuetify.js" height="180")
+          img(src="~assets/images/logo.png" alt="Vuetify.js" height="180")
           h1.white--text.my-3.display-1.text-xs-center Master-nan
           div.subheading.mb-2.text-xs-center Front-end &amp; Back-end Development
           v-btn.blue.lighten-2.mt-3(dark large href="mailto:jszj_dwy1989@163.com")
@@ -46,7 +46,7 @@
                   v-card-text 基于vue的个人网站项目。使用了nuxt以及vuetify，nuxt和vuetify都是vue的通用框架，nuxt主要用于ui渲染提高渲染效率以及seo优化，提供了异步数据加载、中间件支持、布局支持等同时也集成了vue全家桶；vuetify是一个渐进式的ui框架，提供绝大部分组件以及适用于任何应用的解决方案。本项目包含web网站以及后台管理，后台管理用到了是另一个开源项目vuetify-admin。
                     a(style="text-decoration: underline;color:#1976d2" href="#") [详 情]
     section
-      v-parallax(src="/section.jpg" height="580")
+      v-parallax(src="/mid.jpg" height="500")
         v-layout(column align-center justify-center)
           div.headline.white--text.mb-3.text-xs-center
           em
@@ -62,32 +62,32 @@
               v-layout(row wrap)
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/plane.jpg" lazy-src="~assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/plane.jpg" lazy-src="~assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/plane.jpg" lazy-src="~assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/plane.jpg" lazy-src="~assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/plane.jpg" lazy-src="~assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
-                    v-img.bgc(src="/plane.jpg" lazy-src="~assets/mosaic.jpeg" aspect-ratio="1.7" contain)
+                    v-img.bgc(src="/plane.jpg" lazy-src="/mosaic.jpeg" aspect-ratio="1.7" contain)
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
     section
