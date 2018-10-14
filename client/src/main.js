@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-
+import { Upload } from 'element-ui'
 import VueI18n from 'vue-i18n'
 import zh from './lang/zh-CN'
 import en from './lang/en-US'
@@ -22,7 +22,7 @@ import MyMessage from '@/views/components/public/Message.vue'
 import MyComfirm from '@/views/components/public/Comfirm.vue'
 
 Vue.use(VueI18n)
-
+Vue.use(Upload)
 Vue.component('MyLoading', MyLoading)
 Vue.component('MyMessage', MyMessage)
 Vue.component('MyComfirm', MyComfirm)
