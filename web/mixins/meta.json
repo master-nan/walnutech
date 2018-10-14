@@ -4,9 +4,9 @@
     "description": "My Walnutech Project",
     "keywords": "vue, vuetify, nuxt, vuex, vue-router, walnutech"
   },
-  "/inspire": {
-    "title": "Create something amazing",
-    "description": "vue, vuetify, nuxt, vuex, vue-router, walnutech",
+  "/404": {
+    "title": "404 - Walnutech",
+    "description": "Error Page",
     "keywords": "vue, vuetify, nuxt, vuex, vue-router, walnutech"
   }
 }

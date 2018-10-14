@@ -1,7 +1,8 @@
 <template lang="pug">
   v-container
-    div {{ $t('title.none') }}
-    v-btn(dark @click="goback" color="primary") 返回
+    div(style="height:60px")
+    div {{ $t('none.title') }}
+    v-btn(dark @click="goback" color="primary") {{ $t('none.button') }}
 </template>
 <script>
 export default {
