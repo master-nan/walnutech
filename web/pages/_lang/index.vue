@@ -58,7 +58,7 @@
             span.body-1.font-weight-light.font-italic  {{ $t('index.pictureDescription') }}
         v-flex(xs12 sm6 lg6)
           v-card.elevation-0.transparent
-            v-container(grid-list-lg fluid)
+            //- v-container(grid-list-lg fluid)
               v-layout(row wrap)
                 v-flex(xs12 sm4 d-flex)
                   v-card(flat tile class="d-flex")
