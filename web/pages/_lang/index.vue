@@ -1,7 +1,7 @@
 <template lang="pug">
   v-content
     section
-      v-parallax(:src="require('@/assets/images/home.jpg')" height="600")
+      v-parallax(src="/home.jpg" height="600")
         v-layout.white--text(column align-center justify-center)
           img(src="~assets/images/logo.png" alt="Vuetify.js" height="180")
           h1.white--text.my-3.display-1.text-xs-center Master-nan
@@ -46,7 +46,7 @@
                   v-card-text 基于vue的个人网站项目。使用了nuxt以及vuetify，nuxt和vuetify都是vue的通用框架，nuxt主要用于ui渲染提高渲染效率以及seo优化，提供了异步数据加载、中间件支持、布局支持等同时也集成了vue全家桶；vuetify是一个渐进式的ui框架，提供绝大部分组件以及适用于任何应用的解决方案。本项目包含web网站以及后台管理，后台管理用到了是另一个开源项目vuetify-admin。
                     a(style="text-decoration: underline;color:#1976d2" href="https://github.com/master-nan/walnutech") [Details]
     section
-      v-parallax(:src="require('@/assets/images/mid.jpg')" height="500")
+      v-parallax(src="/mid.jpg" height="500")
         v-layout(column align-center justify-center)
           div.headline.white--text.mb-3.text-xs-center {{ $t('index.somethingTitle') }}
           //- em
