@@ -44,7 +44,9 @@ export default {
       }
     },
     onScroll (e) {
-      this.offsetTop = document.documentElement.scrollTop
+      this.offsetTop = document.documentElement.scrollTop || document.body.scrollTop
+      alert(document.documentElement.scrollTop)
+      alert(document.body.scrollTop)
       if (this.offsetTop > 3) {
         this.$store.dispatch('setMoving', true)
       } else {
