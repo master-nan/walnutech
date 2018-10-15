@@ -90,11 +90,6 @@
                     v-img.bgc(src="http://api.vuetify.walnutech.com/uploads/scenery/6.jpg" lazy-src="/mosaic.jpeg" aspect-ratio="1.7")
                       v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
                         v-progress-circular(indeterminate color="grey lighten-5")
-                v-flex(xs12 sm4 d-flex)
-                  v-card(flat tile class="d-flex")
-                    v-img.bgc(src="http://api.vuetify.walnutech.com/uploads/scenery/7.jpg" lazy-src="/mosaic.jpeg" aspect-ratio="1.7")
-                      v-layout(slot="placeholder" fill-height align-center justify-center ma-0)
-                        v-progress-circular(indeterminate color="grey lighten-5")
     section
       v-container(grid-list-xl)
         v-layout.my-5(row wrap justify-center)
