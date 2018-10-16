@@ -31,26 +31,25 @@ export const currentRouter = [
       name: 'index',
       meta: { title: 'Home', icon: 'mdi-home' }
     }]
+  },
+  {
+    path: '/deploy',
+    component: comps['home'],
+    name: 'deploy',
+    meta: {
+      title: '配置管理',
+      icon: 'mdi-buffer'
+    },
+    show: true,
+    children: [
+      {
+        path: 'article/index',
+        component: () => import('@/views/deploy/article/Index.vue'),
+        name: 'article',
+        meta: { title: '文章管理', icon: 'mdi-book-open-variant' }
+      }
+    ]
   }
-  // {
-  //   path: '/deploy',
-  //   component: comps['home'],
-  //   redirect: '/deploy/pic/index',
-  //   name: 'deploy',
-  //   meta: {
-  //     title: '配置管理',
-  //     icon: 'mdi-sitemap'
-  //   },
-  //   show: true,
-  //   children: [
-  //     {
-  //       path: 'pic/index',
-  //       component: () => import('@/views/deploy/picture/Index.vue'),
-  //       name: 'pic',
-  //       meta: { title: '图片管理', icon: 'mdi-puzzle' }
-  //     }
-  //   ]
-  // }
   // {
   //   path: '/organization',
   //   component: home,

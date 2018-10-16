@@ -10,7 +10,9 @@ module.exports = {
     Rule: 'Rule',
     addMenu: 'Add Menu',
     addRule: 'Add Rule',
-    Setting: 'Setting'
+    Setting: 'Setting',
+    Deploy: 'Deploy',
+    Article: 'Article'
   },
   Button: {
     Submit: 'Submit',
@@ -26,7 +28,9 @@ module.exports = {
     Yes: 'Yes',
     No: 'No',
     Enable: 'Enable',
-    Disable: 'Disable'
+    Disable: 'Disable',
+    Publish: 'Publish',
+    Draft: 'Draft'
   },
   Login: {
     Login: 'Login',
@@ -42,7 +46,9 @@ module.exports = {
     Enabled: 'Enabled',
     Disabled: 'Disabled',
     Show: 'Show',
-    Hidden: 'Hidden'
+    Hidden: 'Hidden',
+    Publish: 'Publish',
+    Draft: 'Draft'
   },
   Table: {
     Name: 'Name',
@@ -61,19 +67,16 @@ module.exports = {
     Redirect: 'Redirect',
     Show: 'Full menu',
     Hidden: 'Left Status',
-    Sort: 'Sort'
+    Sort: 'Sort',
+    Click: 'Click',
+    Cover: 'Cover'
   },
   TableTitle: {
     Department: 'Department',
     Position: 'Position',
     Menu: 'Menu',
     Rule: 'Rule',
-    User: 'User'
-  },
-  Message: {
-    Title: 'Sport Brands'
-  },
-  Placeholder: {
-    Enter: 'Please type in your favorite brand'
+    User: 'User',
+    Article: 'Article'
   }
 }

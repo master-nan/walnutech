@@ -6,9 +6,9 @@
 
 <script>
 import E from 'wangeditor'
-import util from '~/utils'
-import api from '~/api'
-import config from '~/utils/config'
+import util from '@/utils'
+import api from '@/api'
+
 export default {
   name: 'editor',
   props: ['content'],
@@ -73,8 +73,8 @@ export default {
         },
         customInsert: function (insertImg, result, editor) {
           if (result.data.status === 'success') {
-            var url = config.imgUrl + result.data.result.file
-            insertImg(url)
+            // var url = config.imgUrl + result.data.result.file
+            // insertImg(url)
           } else {
             util.message('上传失败', 'error')
           }

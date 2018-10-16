@@ -6,6 +6,8 @@ import position from './position'
 import rule from './rule'
 import user from './user'
 import setting from './setting'
+import article from './article'
+import upload from './upload'
 
 export default {
   base,
@@ -15,5 +17,7 @@ export default {
   position,
   rule,
   user,
-  setting
+  setting,
+  article,
+  upload
 }

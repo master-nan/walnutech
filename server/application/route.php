@@ -19,6 +19,7 @@ return [
         'user'      =>  'admin/adminUser',
         'rule'      =>  'admin/rule',
         'setting'   =>  'admin/sysConfig',
+        'article'   =>  'admin/article',
     ],
     '[base]'      => [
         'index'       => ['admin/base/index', ['method' => 'get']],
@@ -39,6 +40,7 @@ return [
     'position/enable'   => ['admin/position/enable', ['method' => 'post']],
     'department/enable' => ['admin/department/enable', ['method' => 'post']],
     'menu/enable'       => ['admin/menu/enable', ['method' => 'post']],
+    'article/enable'    => ['admin/article/enable', ['method' => 'post']],
 
     // MISS路由
     '__miss__'    => 'admin/base/index',

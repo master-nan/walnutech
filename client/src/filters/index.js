@@ -42,6 +42,13 @@ Vue.filter('statusFilter', function (val, type = 1) {
         title = 'Show'
       }
       break
+    case 4:
+      if (val === 1) {
+        title = 'Publish'
+      } else {
+        title = 'Draft'
+      }
+      break
     default:
   }
   return title
@@ -69,6 +76,13 @@ Vue.filter('statusChipFilter', function (val, type = 1) {
         title = 'info'
       } else {
         title = 'orange'
+      }
+      break
+    case 4:
+      if (val === 1) {
+        title = 'success'
+      } else {
+        title = 'error'
       }
       break
     default:

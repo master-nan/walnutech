@@ -10,7 +10,9 @@ module.exports = {
     Rule: '权限管理',
     addMenu: '添加菜单',
     addRule: '添加权限',
-    Setting: '全局设置'
+    Setting: '全局设置',
+    Deploy: '配置管理',
+    Article: '文章管理'
   },
   Button: {
     Submit: '提交',
@@ -26,7 +28,9 @@ module.exports = {
     Yes: '是',
     No: '否',
     Enable: '启用',
-    Disable: '禁用'
+    Disable: '禁用',
+    Publish: '发布',
+    Draft: '草稿'
   },
   Login: {
     Login: '登录',
@@ -42,7 +46,9 @@ module.exports = {
     Enabled: '启用',
     Disabled: '禁用',
     Show: '显示',
-    Hidden: '隐藏'
+    Hidden: '隐藏',
+    Publish: '发布',
+    Draft: '草稿'
   },
   Table: {
     Name: '名称',
@@ -61,19 +67,16 @@ module.exports = {
     Redirect: '重定向',
     Show: '完整子菜单',
     Hidden: '左侧状态',
-    Sort: '排序'
+    Sort: '排序',
+    Click: '点击量',
+    Cover: '图片'
   },
   TableTitle: {
     Department: '部门',
     Position: '岗位',
     Menu: '菜单',
     Rule: '权限',
-    User: '用户'
-  },
-  Message: {
-    Title: 'Sport Brands'
-  },
-  Placeholder: {
-    Enter: 'Please type in your favorite brand'
+    User: '用户',
+    Article: '文章'
   }
 }
