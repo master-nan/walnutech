@@ -48,8 +48,13 @@
           v-form(ref="form" v-model="valid" lazy-validation)
             v-text-field(v-model="ruleForm.title" :rules="[v => !!v || 'Title is required']" label="标题" required)
             v-flex(xs12)
-              solt.subheading(style="color:#838383") 内容
+              span.d-block.my-1.subheading(style="color:#838383") 内容
               wEditor(@setContent="getContent" :content="ruleForm.content")
+            v-flex.mt-3(xs12)
+              span.d-block.my-1.subheading(style="color:#838383") 封面
+              el-upload.avatar-uploader(:headers="header" name="file" accept=".jpg,.png,.jpeg" :action="path" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload")
+                img.avatar(v-if="imageUrl" :src="imageUrl")
+                i.el-icon-plus.avatar-uploader-icon(v-else)
             v-btn.mt-2.mr-2(@click="cancel" dark)
               v-icon(dark left) mdi-close-circle
               slot {{'Cancel'|i18nName('Button',self)}}
@@ -99,7 +104,9 @@ export default{
         { title: '草稿', value: 0 },
         { title: '发布', value: 1 }
       ],
-      title: '添加文章'
+      title: '添加文章',
+      imageUrl: '',
+      path: api.upload.img()
     }
   },
   components: {
@@ -109,9 +116,37 @@ export default{
     pages () {
       if (this.count == null) return 0
       return Math.ceil(this.count / this.list.len)
+    },
+    header () {
+      return {
+        'X-Requested-Token': sessionStorage.getItem('token') ? sessionStorage.getItem('token') : null
+      }
     }
   },
   methods: {
+    handleAvatarSuccess (res, file) {
+      util.response(res, this)
+      if (res.data) {
+        this.ruleForm.avatar = res.data.path + res.data.name
+        this.imageUrl = URL.createObjectURL(file.raw)
+      }
+    },
+    beforeAvatarUpload (file) {
+      const isLt2M = file.size / 1024 / 1024 < 2
+      if (file.type !== 'image/jpeg' && file.type !== 'image/jpg' && file.type !== 'image/png') {
+        this.$message.error('上传头像图片只能是jpg/png/ipeg格式!')
+        return false
+      }
+      if (!isLt2M) {
+        this.$message.error('上传头像图片大小不能超过 2MB!')
+        return false
+      }
+      return true
+    },
+    setUser () {
+      this.ruleForm.nickname = this.$store.getters.getUserInfo['nickname']
+      this.imageUrl = this.$store.getters.getUserInfo['avatar']
+    },
     changePage () {
       this.p = parseInt(this.p)
       if (isNaN(this.p)) {
@@ -241,5 +276,28 @@ table tr{
   td{
     font-size:14px;
   }
+}
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+}
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+.avatar {
+    width: 100px;
+    height: 100px;
+    display: block;
 }
 </style>
