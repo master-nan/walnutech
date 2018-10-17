@@ -6,9 +6,15 @@ use think\Model;
 
 class Article extends Model
 {
-    public function getArticles($data = [])
+    public function getArticles($data = [], $page = 1, $len = 15)
     {
-        $res = $this->where($data)->select();
+        $res = $this->alias('a')
+                    ->join('files f', 'f.id = a.cover_id', 'LEFT')
+                    ->field('a.content,a.title,a.guid,a.status,a.create_at,a.click,a.update_at,CONCAT(f.path, f.name) as cover')
+                    ->page($page, $len)
+                    ->where($data)
+                    ->order('a.create_at desc')
+                    ->select();
         if ($res) {
             $res = $res->toArray();
         }
@@ -52,7 +58,7 @@ class Article extends Model
             }
         }
         try {
-            $this->allowField(true)->save($param, ['guid' => $guid]);
+            $this->allowField(true)->where(['guid' => $guid])->update($param);
             return true;
         } catch (\Exception $e) {
             $this->error = '更新失败';
@@ -74,5 +80,11 @@ class Article extends Model
             $this->error = '删除失败';
             return false;
         }
+    }
+
+    public function count($data = [])
+    {
+        $ret = $this->where($data)->count();
+        return $ret;
     }
 }

@@ -17,7 +17,7 @@
             span.body-1.font-weight-light.font-italic {{ $t('index.projectDescription') }}
         v-flex(xs12)
           v-container(grid-list-xl)
-            v-layout(row wrap align-center)
+            v-layout(row wrap)
               v-flex(xs12 md4)
                 v-card.elevation-0.transparent
                   v-card-text.text-xs-center
@@ -50,6 +50,39 @@
         v-layout(column align-center justify-center)
           div.headline.white--text.mb-3.text-xs-center {{ $t('index.somethingTitle') }}
           //- em
+    section
+      v-container.my-3(column wrap align-center)
+        v-flex.my-1(xs12)
+          div.text-xs-center
+            h2.mb-2.headline 实用文章
+            span.body-1.font-weight-light.font-italic 随手记
+        v-flex(xs12)
+          v-container(grid-list-xl)
+            v-layout(row wrap)
+              v-flex(xs12 :class="{ 'md6': flag }")
+                v-card
+                  v-list(two-line)
+                    template(v-for="(item, index) in data")
+                      v-list-tile(v-if="index < 3" avatar ripple :to="'/' + $i18n.locale + '/article/' + item.guid")
+                        v-list-tile-content
+                          v-list-tile-title {{item.title}}
+                          v-list-tile-sub-title {{item.create_at}}
+                        v-list-tile-action
+                          v-list-tile-action-text 访问量：{{item.click}}
+                          v-icon mdi-chevron-right
+                      v-divider(v-if="index < 2")
+              v-flex(xs12 md6 v-if="flag" )
+                v-card
+                  v-list(two-line)
+                    template(v-for="(item, index) in data")
+                      v-list-tile(v-if="index > 2 && index < 6" avatar ripple :to="'/' + $i18n.locale + '/article/' + item.guid")
+                        v-list-tile-content
+                          v-list-tile-title {{item.title}}
+                          v-list-tile-sub-title {{item.create_at}}
+                        v-list-tile-action
+                          v-list-tile-action-text 访问量：{{item.click}}
+                          v-icon mdi-chevron-right
+                      v-divider(v-if="index > 2 &&  index < 5")
     section
       v-layout.py-5.bgc(row wrap justify-center align-center)
         v-flex.my-1(xs12 sm12)
@@ -122,21 +155,26 @@
                       a(style="text-decoration: underline;color:#1976d2" target="_blank" href="https://weibo.com/u/1853866487") {{ $t('index.contactWeibo') }}
 </template>
 <script>
-// import api from '~/api'
+import api from '~/api'
 export default {
   layout: 'home',
   // 服务端渲染方式
   async asyncData ({params}) {
-    // let res = await api.index()
-    // if (res.code === 200) {
-    //   return {
-    //     data: res.data
-    //   }
-    // }
+    let res = await api.article.index()
+    if (res.code === 200) {
+      var flag = res.count > 3
+      return {
+        data: res.data,
+        count: res.count,
+        flag: flag
+      }
+    }
   },
   data () {
     return {
-      data: []
+      data: [],
+      count: 0,
+      flag: true
     }
   },
   components: {

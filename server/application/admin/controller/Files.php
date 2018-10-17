@@ -23,7 +23,7 @@ class Files extends Comm
         ];
         $f = $this->model->getFileByHash($file->hash());
         if ($f) {
-            return msg(100, $f, '您上传的文件已存在');
+            return msg(200, $f, '您上传的文件已存在');
         }
         $arr = pathinfo($file->getInfo('name'));
         $data = [
@@ -45,6 +45,7 @@ class Files extends Comm
         if (!$res) {
             return msg(100, null, $this->model->getError());
         }
+        $data['id'] = $res;
         return msg(200, $data, '上传成功');
     }
 }

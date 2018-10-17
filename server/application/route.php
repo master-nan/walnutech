@@ -13,13 +13,13 @@ return [
     // 定义资源路由
     '__rest__'=>[
         // menu
-        'menu'      =>  'admin/menu',
-        'position'  =>  'admin/position',
-        'department'=>  'admin/department',
-        'user'      =>  'admin/adminUser',
-        'rule'      =>  'admin/rule',
-        'setting'   =>  'admin/sysConfig',
-        'article'   =>  'admin/article',
+        'menu'          =>  'admin/menu',
+        'position'      =>  'admin/position',
+        'department'    =>  'admin/department',
+        'user'          =>  'admin/adminUser',
+        'rule'          =>  'admin/rule',
+        'setting'       =>  'admin/sysConfig',
+        'article'       =>  'admin/article',
     ],
     '[base]'      => [
         'index'       => ['admin/base/index', ['method' => 'get']],
@@ -41,7 +41,6 @@ return [
     'department/enable' => ['admin/department/enable', ['method' => 'post']],
     'menu/enable'       => ['admin/menu/enable', ['method' => 'post']],
     'article/enable'    => ['admin/article/enable', ['method' => 'post']],
-
     // MISS路由
     '__miss__'    => 'admin/base/index',
 ];

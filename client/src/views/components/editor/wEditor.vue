@@ -19,8 +19,6 @@ export default {
     }
   },
   methods: {
-    getContent: function () {
-    },
     initEditor () {
       var editor = new E(this.$refs.editor)
       this.pro = editor
@@ -83,15 +81,15 @@ export default {
       }
       editor.create()
       editor.txt.html(this.content)
+    },
+    pushContent (val) {
+      this.$emit('setContent', this.editorContent)
     }
   },
   mounted () {
     this.initEditor()
   },
   watch: {
-    editorContent (val) {
-      this.$emit('setContent', this.editorContent)
-    },
     content (val) {
       this.content = val
       this.pro.txt.html(this.content)

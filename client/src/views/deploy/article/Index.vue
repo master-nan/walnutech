@@ -20,9 +20,9 @@
             span {{ props.header.text|i18nName('Table',self) }}
         template(slot="items" slot-scope="props")
           td {{ props.index + 1 }}
-          td.text-xs-left {{ props.item.nickname }}
-          td.text-xs-left {{ props.item.d_name }}
-          td.text-xs-left {{ props.item.p_name }}
+          td.text-xs-left {{ props.item.title }}
+          td.text-xs-left {{ props.item.cover }}
+          td.text-xs-left {{ props.item.click }}
           td.text-xs-left
             v-chip(:color="props.item.status|statusChipFilter(4)|i18nName('Tag',self)" label outline) {{props.item.status|statusFilter(4)|i18nName('Tag',self)}}
           td.justify-left
@@ -47,14 +47,14 @@
         v-card-text
           v-form(ref="form" v-model="valid" lazy-validation)
             v-text-field(v-model="ruleForm.title" :rules="[v => !!v || 'Title is required']" label="标题" required)
-            v-flex(xs12)
-              span.d-block.my-1.subheading(style="color:#838383") 内容
-              wEditor(@setContent="getContent" :content="ruleForm.content")
             v-flex.mt-3(xs12)
               span.d-block.my-1.subheading(style="color:#838383") 封面
-              el-upload.avatar-uploader(:headers="header" name="file" accept=".jpg,.png,.jpeg" :action="path" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload")
+              el-upload.avatar-uploader(:headers="header" name="file" accept=".jpg,.png,.jpeg" :action="path" :show-file-list="false" :on-success="handleImgSuccess" :before-upload="beforeImgUpload")
                 img.avatar(v-if="imageUrl" :src="imageUrl")
                 i.el-icon-plus.avatar-uploader-icon(v-else)
+            v-flex(xs12)
+              span.d-block.my-1.subheading(style="color:#838383") 内容
+              wEditor(ref="editor" @setContent="getContent" :content="ruleForm.content")
             v-btn.mt-2.mr-2(@click="cancel" dark)
               v-icon(dark left) mdi-close-circle
               slot {{'Cancel'|i18nName('Button',self)}}
@@ -68,6 +68,7 @@
 <script>
 import wEditor from '@/views/components/editor/wEditor'
 import util from '@/utils'
+import http from '@/utils/http'
 import api from '@/api'
 export default{
   name: 'article-index',
@@ -124,14 +125,14 @@ export default{
     }
   },
   methods: {
-    handleAvatarSuccess (res, file) {
+    handleImgSuccess (res, file) {
       util.response(res, this)
       if (res.data) {
-        this.ruleForm.avatar = res.data.path + res.data.name
+        this.ruleForm.cover_id = res.data.id
         this.imageUrl = URL.createObjectURL(file.raw)
       }
     },
-    beforeAvatarUpload (file) {
+    beforeImgUpload (file) {
       const isLt2M = file.size / 1024 / 1024 < 2
       if (file.type !== 'image/jpeg' && file.type !== 'image/jpg' && file.type !== 'image/png') {
         this.$message.error('上传头像图片只能是jpg/png/ipeg格式!')
@@ -142,10 +143,6 @@ export default{
         return false
       }
       return true
-    },
-    setUser () {
-      this.ruleForm.nickname = this.$store.getters.getUserInfo['nickname']
-      this.imageUrl = this.$store.getters.getUserInfo['avatar']
     },
     changePage () {
       this.p = parseInt(this.p)
@@ -162,15 +159,23 @@ export default{
       this.type = 1
       this.show = true
       this.$nextTick(() => {
+        this.ruleForm.cover_id = null
+        this.ruleForm.title = ''
+        this.ruleForm.content = ''
+        this.imageUrl = ''
+        this.getContent('')
         this.$refs.form.reset()
         delete this.ruleForm.guid
       })
     },
     edit (e) {
       this.title = '编辑文章'
-      // this.index = e.index
       this.type = 2
-      this.ruleForm = util.cloneDeep(e.item)
+      this.ruleForm.guid = e.item.guid
+      this.ruleForm.cover_id = e.item.cover_id
+      this.ruleForm.title = e.item.title
+      this.ruleForm.content = e.item.content
+      this.imageUrl = e.item.cover ? (http.baseURL + e.item.cover) : ''
       this.show = true
     },
     del (e) {
@@ -192,6 +197,7 @@ export default{
         })
     },
     cancel () {
+      this.ruleForm.content = ''
       this.$nextTick(() => {
         this.$refs.form.reset()
         this.show = false
@@ -203,7 +209,7 @@ export default{
     async enable (e) {
       let data = {
         'guid': e.item.guid,
-        'status': e.item.status === 1 ? 2 : 1
+        'status': e.item.status === 1 ? 0 : 1
       }
       let res = await api.article.enable(data)
       util.response(res, this)
@@ -214,6 +220,7 @@ export default{
       }
     },
     async submit () {
+      this.$refs.editor.pushContent()
       if (this.$refs.form.validate()) {
         this.$refs.loading.open()
         let res = null
@@ -228,9 +235,6 @@ export default{
           this.$refs.message.open('操作成功', 'success')
           this.show = false
           this.getData()
-          // this.$nextTick(() => {
-          //   this.$refs.form.reset()
-          // })
         } else {
           this.$refs.message.open(res.error, 'error')
         }
@@ -277,7 +281,7 @@ table tr{
     font-size:14px;
   }
 }
-.avatar-uploader .el-upload {
+.avatar-uploader div i{
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
     cursor: pointer;

@@ -16,15 +16,23 @@ class Article extends Comm
             return msg(401, null, '您没有权限操作');
         }
         $status = isset($this->param['status']) ? $this->param['status'] : null;
+        $page = isset($this->param['page']) ? $this->param['page'] : 1;
+        $len = isset($this->param['len']) ? $this->param['len'] : 15;
         $data = [];
+        $arr = [];
         if ($status) {
-            $data['status'] = $status;
+            $data['a.status'] = $status;
+            $arr['status'] = $status;
         }
-        $ret = $this->model->getArticles($data);
+        $count = $this->model->count($data);
+        if ($page > ceil($count / $len)) {
+            $page = ceil($count / $len);
+        }
+        $ret = $this->model->getArticles($data, $page, $len);
         if ($ret) {
-            return msg(200, $ret);
+            return msg(200, $ret, null, $count);
         } else {
-            return msg(204, [], $this->model->getError());
+            return msg(204, [], $this->model->getError(), $count);
         }
     }
 
@@ -46,6 +54,8 @@ class Article extends Comm
         }
         $guid = create_guid();
         $this->param['guid'] = $guid;
+        $this->param['create_at'] = date('Y-m-d H:i:s', time());
+        $this->param['update_at'] = date('Y-m-d H:i:s', time());
         $ret = $this->model->saveArticle($this->param);
         if ($ret) {
             return msg(200, $guid, '添加成功');
@@ -59,12 +69,14 @@ class Article extends Comm
         if (!$this->checkRule()) {
             return msg(401, null, '您没有权限操作');
         }
+        unset($this->param['id']);
         if ($this->param['guid']) {
             $guid = $this->param['guid'];
             unset($this->param['guid']);
         } else {
             return msg(100, null, '参数错误');
         }
+        $this->param['update_at'] = date('Y-m-d H:i:s', time());
         $ret = $this->model->updateArticle($guid, $this->param);
         if ($ret) {
             return msg(200, null, '更新成功');
@@ -78,8 +90,8 @@ class Article extends Comm
         if (!$this->checkRule()) {
             return msg(401, null, '您没有权限操作');
         }
-        if ($this->param['guid']) {
-            $guid = $this->param['guid'];
+        if ($this->param['id']) {
+            $guid = $this->param['id'];
         } else {
             return msg(100, null, '参数错误');
         }
