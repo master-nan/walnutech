@@ -61,6 +61,7 @@
             v-btn.mt-2(:disabled="!valid" @click="submit" color="primary")
               v-icon(dark left) check_circle
               slot {{'Submit'|i18nName('Button',self)}}
+    div {{ruleForm.content}}
     MyLoading(ref="loading")
     MyMessage(ref="message")
     MyComfirm(ref="comfirm")

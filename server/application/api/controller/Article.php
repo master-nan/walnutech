@@ -35,7 +35,7 @@ class Article extends Comm
 
     public function read()
     {
-        $guid = $this->param['guid'];
+        $guid = $this->param['id'];
         $ret = $this->model->getArticleByGuid($guid);
         if ($ret) {
             return msg(200, $ret);
