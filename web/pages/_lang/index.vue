@@ -52,7 +52,7 @@
           //- em
     section
       v-container.my-3(column wrap align-center)
-        v-flex.my-1(xs12)
+        v-flex.my-2(xs12)
           div.text-xs-center
             h2.mb-2.headline 实用文章
             span.body-1.font-weight-light.font-italic 随手记
@@ -70,7 +70,7 @@
                         v-list-tile-action
                           v-list-tile-action-text 访问量：{{item.click}}
                           v-icon mdi-chevron-right
-                      v-divider(v-if="index < 2")
+                      v-divider(v-if="index < 2 && index < (count - 1)")
               v-flex(xs12 md6 v-if="flag" )
                 v-card
                   v-list(two-line)

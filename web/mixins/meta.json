@@ -2,11 +2,11 @@
   "/": {
     "title": "Walnutech",
     "description": "My Walnutech Project",
-    "keywords": "vue, vuetify, nuxt, vuex, vue-router, walnutech"
+    "keywords": "vue, vuetify, nuxt, vuex, vue-router, walnutech, master-nan"
   },
   "/404": {
     "title": "404 - Walnutech",
     "description": "Error Page",
-    "keywords": "vue, vuetify, nuxt, vuex, vue-router, walnutech"
+    "keywords": "vue, vuetify, nuxt, vuex, vue-router, walnutech, master-nan"
   }
 }

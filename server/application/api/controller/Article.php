@@ -17,11 +17,9 @@ class Article extends Comm
         $len = isset($this->param['len']) ? $this->param['len'] : 15;
         $data = [];
         $arr = [];
-        if ($status) {
-            $data['a.status'] = $status;
-            $arr['status'] = $status;
-        }
-        $count = $this->model->count($data);
+        $data['a.status'] = $status ? $status : 1;
+        $arr['status'] = $status ? $status : 1;
+        $count = $this->model->count($arr);
         if ($page > ceil($count / $len)) {
             $page = ceil($count / $len);
         }

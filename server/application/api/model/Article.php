@@ -1,5 +1,4 @@
 <?php
-
 namespace app\api\model;
 
 use think\Model;
@@ -23,7 +22,10 @@ class Article extends Model
 
     public function getArticleByGuid($guid = null)
     {
-        $res = $this->where('guid', $guid)->find();
+        $res = $this->alias('a')
+                    ->join('admin_user u', 'u.id = a.user_id', 'LEFT')
+                    ->field('a.*,u.nickname')
+                    ->where('a.guid', $guid)->find();
         if ($res) {
             return $res;
         } else {

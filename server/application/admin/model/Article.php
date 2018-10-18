@@ -10,7 +10,7 @@ class Article extends Model
     {
         $res = $this->alias('a')
                     ->join('files f', 'f.id = a.cover_id', 'LEFT')
-                    ->field('a.content,a.title,a.guid,a.status,a.create_at,a.click,a.update_at,CONCAT(f.path, f.name) as cover')
+                    ->field('a.content,a.title,a.guid,a.status,a.create_at,a.click,a.update_at,CONCAT(f.path, f.name) as cover,a.keywords,a.description')
                     ->page($page, $len)
                     ->where($data)
                     ->order('a.create_at desc')

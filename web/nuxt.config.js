@@ -14,7 +14,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description },
       {
         name: 'keywords',
-        content: 'vue, vue-router, vuex, nuxt, vuetify, master-nan'
+        content: 'vue, vue-router, vuex, nuxt, vuetify, walnutech, master-nan'
       }
     ],
     link: [

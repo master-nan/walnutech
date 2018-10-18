@@ -54,6 +54,7 @@ class Article extends Comm
         }
         $guid = create_guid();
         $this->param['guid'] = $guid;
+        $this->param['user_id'] = $this->user['id'];
         $this->param['create_at'] = date('Y-m-d H:i:s', time());
         $this->param['update_at'] = date('Y-m-d H:i:s', time());
         $ret = $this->model->saveArticle($this->param);

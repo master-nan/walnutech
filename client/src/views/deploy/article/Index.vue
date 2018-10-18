@@ -47,6 +47,8 @@
         v-card-text
           v-form(ref="form" v-model="valid" lazy-validation)
             v-text-field(v-model="ruleForm.title" :rules="[v => !!v || 'Title is required']" label="标题" required)
+            v-text-field(v-model="ruleForm.keywords" label="关键词" required)
+            v-text-field(v-model="ruleForm.description" label="描述" required)
             v-flex.mt-3(xs12)
               span.d-block.my-1.subheading(style="color:#838383") 封面
               el-upload.avatar-uploader(:headers="header" name="file" accept=".jpg,.png,.jpeg" :action="path" :show-file-list="false" :on-success="handleImgSuccess" :before-upload="beforeImgUpload")
@@ -61,7 +63,6 @@
             v-btn.mt-2(:disabled="!valid" @click="submit" color="primary")
               v-icon(dark left) check_circle
               slot {{'Submit'|i18nName('Button',self)}}
-    div {{ruleForm.content}}
     MyLoading(ref="loading")
     MyMessage(ref="message")
     MyComfirm(ref="comfirm")
@@ -80,7 +81,9 @@ export default{
       ruleForm: {
         cover_id: null,
         title: '',
-        content: ''
+        content: '',
+        description: '',
+        keywords: ''
       },
       index: 1,
       show: false,
@@ -163,6 +166,8 @@ export default{
         this.ruleForm.cover_id = null
         this.ruleForm.title = ''
         this.ruleForm.content = ''
+        this.ruleForm.keywords = ''
+        this.ruleForm.description = ''
         this.imageUrl = ''
         this.getContent('')
         this.$refs.form.reset()
@@ -176,6 +181,8 @@ export default{
       this.ruleForm.cover_id = e.item.cover_id
       this.ruleForm.title = e.item.title
       this.ruleForm.content = e.item.content
+      this.ruleForm.keywords = e.item.keywords
+      this.ruleForm.description = e.item.description
       this.imageUrl = e.item.cover ? (http.baseURL + e.item.cover) : ''
       this.show = true
     },

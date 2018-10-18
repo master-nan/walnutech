@@ -92,6 +92,7 @@ export default {
   watch: {
     content (val) {
       this.content = val
+      this.editorContent = this.content
       this.pro.txt.html(this.content)
     }
   }
