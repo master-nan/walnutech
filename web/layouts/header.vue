@@ -1,6 +1,6 @@
 <template lang="pug">
   v-toolbar(:class="{ 'fix': moving, 'dolly': !moving }" :flat="!moving" dark fixed)
-    router-link(to="/")
+    router-link(:to="'/' + $i18n.locale + '/'")
       v-avatar(:tile="true" size="58" color="grey lighten-4")
         img(src="~/assets/images/logo.png" alt="avatar")
     v-toolbar-title Walnutech
