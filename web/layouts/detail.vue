@@ -2,8 +2,10 @@
   v-app
     v-layout(@contextmenu="rightBan")
       v-content
-        d-header
-        div(style="height:70px")
+        m-header
+        v-flex(xs12)
+          v-parallax(src="/detail-img.jpg" height="300")
+            div.fill-height.bottom-gradient
         v-layout
           nuxt
         m-footer
@@ -11,14 +13,14 @@
         v-icon mdi-chevron-left
 </template>
 <script>
-import DHeader from './detail-header'
+import MHeader from './header'
 import MFooter from './footer'
 import Meta from '~/mixins/index'
 
 export default {
   mixins: [Meta],
   components: {
-    DHeader,
+    MHeader,
     MFooter
   },
   data () {

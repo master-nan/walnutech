@@ -1,6 +1,7 @@
 <template lang="pug">
-  v-container.elevation-2.mb-5
-    v-flex.mb-5(xs10 offset-xs1)
+v-container
+  v-container.elevation-2.my-3
+    v-flex.mb-5(xs12)
       div.text-xs-center
         h2.display-1 {{ data.title }}
         em.font-weight-light(v-if="data.description") {{ data.description }}
@@ -10,7 +11,7 @@
         //- span.font-weight-medium {{ data.click }}
       //- v-divider
     v-layout(row wrap)
-      v-flex(xs2 md2 offset-md1 fixed)
+      v-flex(xs12 md2 offset-md1 fixed)
         v-layout(row wrap align-center)
           v-flex.text-xs-center(xs10)
             div.mb-1.subheading.font-weight-light — 发布时间 —
@@ -21,12 +22,17 @@
             div.font-weight-medium(style="color:#00B0FF") {{ data.nickname }}
           v-flex(xs2 style="height:200px")
             v-divider(vertical)
-      v-flex(xs11 md7)
-        div(v-html="data.content")
-      v-flex(xs12)
-        v-divider
-      v-flex(xs12)
-        div aaa
+      v-flex(xs12 md7)
+        div.mb-4(v-html="data.content")
+    v-flex(xs12)
+      v-divider
+    v-layout(row wrap)
+      v-flex.mt-3(xs12 md5)
+        v-card.subheading.pa-3 上一篇:&nbsp;&nbsp;
+          span.body-1 cccsd大多数
+      v-flex.mt-3(xs12 md5 offset-md2)
+        v-card.subheading.pa-3 下一篇:&nbsp;&nbsp;
+          span.body-1 cccsd大多数
 </template>
 <script>
 import api from '~/api'

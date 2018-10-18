@@ -36,6 +36,8 @@ class Article extends Comm
         $guid = $this->param['id'];
         $ret = $this->model->getArticleByGuid($guid);
         if ($ret) {
+            $param['click'] = array('inc',1);
+            $this->model->updateArticle($guid, $param);
             return msg(200, $ret);
         } else {
             return msg(100, null, $this->model->getError());

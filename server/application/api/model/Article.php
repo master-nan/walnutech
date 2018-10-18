@@ -34,6 +34,16 @@ class Article extends Model
         }
     }
 
+    public function updateArticle($guid = null, $param = []){
+      try {
+          $this->allowField(true)->where(['guid' => $guid])->update($param);
+          return true;
+      } catch (\Exception $e) {
+          $this->error = '更新失败';
+          return false;
+      }
+    }
+
     public function count($data = [])
     {
         $ret = $this->where($data)->count();

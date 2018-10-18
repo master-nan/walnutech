@@ -2,6 +2,8 @@
   v-footer(dark height="auto")
     v-card.blue.darken-1.white--text.text-xs-center(width="100%" flat tile)
       v-card-text
+        v-btn(v-for="link in links" :key="link" color="white" flat round) {{ link }}
+      v-card-text
         v-btn.mx-3.white--text(slot="activator" icon target="_blank" href="https://github.com/master-nan/walnutech")
           v-icon(size="32px") mdi-github-circle
       v-card-text.white--text.pt-0.px-5
@@ -13,10 +15,10 @@
 <script>
 export default {
   data: () => ({
-    icons: [
-      'face',
-      'mdi-github-circle',
-      'add'
+    links: [
+      'Home',
+      'About Us',
+      'Contact Us'
     ]
   })
 }
