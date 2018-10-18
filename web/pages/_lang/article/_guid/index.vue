@@ -2,7 +2,7 @@
   v-container.elevation-2.mb-5
     v-flex.mb-5(xs10 offset-xs1)
       div.text-xs-center
-        h2.my-3.display-1 {{ data.title }}
+        h2.display-1 {{ data.title }}
         em.font-weight-light(v-if="data.description") {{ data.description }}
         //- span.body-2.font-weight-light  发布时间：
         //- span.font-weight-medium {{ data.create_at }} &nbsp;&nbsp;&nbsp;&nbsp;
