@@ -54,8 +54,8 @@
       v-container.my-3(column wrap align-center)
         v-flex.my-2(xs12)
           div.text-xs-center
-            h2.mb-2.headline 实用文章
-            span.body-1.font-weight-light.font-italic 随手记
+            h2.mb-2.headline {{ $t('index.articleTitle') }}
+            span.body-1.font-weight-light.font-italic {{ $t('index.articleDescription') }}
         v-flex(xs12)
           v-container(grid-list-xl)
             v-layout(row wrap)

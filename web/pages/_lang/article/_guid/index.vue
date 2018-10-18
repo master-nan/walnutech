@@ -14,11 +14,11 @@ v-container
       v-flex(xs12 md2 offset-md1 fixed)
         v-layout(row wrap align-center)
           v-flex.text-xs-center(xs10)
-            div.mb-1.subheading.font-weight-light — 发布时间 —
+            div.mb-1.subheading.font-weight-light — {{ $t('article.time') }} —
             div.mb-3.font-weight-medium(style="color:#00B0FF") {{ data.create_at }}
-            div.mb-1.subheading.font-weight-light — 阅读量 —
+            div.mb-1.subheading.font-weight-light — {{ $t('article.click') }} —
             div.mb-3.font-weight-medium(style="color:#00B0FF") {{ data.click }}
-            div.mb-1.subheading.font-weight-light — 发布者 —
+            div.mb-1.subheading.font-weight-light — {{ $t('article.author') }} —
             div.font-weight-medium(style="color:#00B0FF") {{ data.nickname }}
           v-flex(xs2 style="height:200px")
             v-divider(vertical)
@@ -28,11 +28,11 @@ v-container
       v-divider
     v-layout(row wrap)
       v-flex.mt-3(xs12 md5)
-        v-card.subheading.pa-3 上一篇:&nbsp;&nbsp;
-          span.body-1 cccsd大多数
+        v-card.subheading.pa-3 {{ $t('article.last') }}:&nbsp;&nbsp;
+          span.body-1
       v-flex.mt-3(xs12 md5 offset-md2)
-        v-card.subheading.pa-3 下一篇:&nbsp;&nbsp;
-          span.body-1 cccsd大多数
+        v-card.subheading.pa-3 {{ $t('article.next') }}:&nbsp;&nbsp;
+          span.body-1
 </template>
 <script>
 import api from '~/api'

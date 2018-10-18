@@ -5,6 +5,8 @@ const zh = {
     projectTitle: '个人开源项目',
     projectDescription: '一些开箱即用的小项目',
     somethingTitle: '千里之行，始于足下',
+    articleTitle: '实用文章',
+    articleDescription: '(⊙ˍ⊙)随手记',
     pictureTitle: '图片欣赏',
     pictureDescription: '(⊙ˍ⊙)摄影学习之路，不定期更新',
     profileTitle: '作者简介',
@@ -13,6 +15,13 @@ const zh = {
     contactContent: '如果你使用了上述开源项目并遇到一些疑问可以通过下面方式联系作者：',
     contactAddress: '中国江苏镇江',
     contactWeibo: '微博'
+  },
+  article: {
+    time: '发布时间',
+    click: '阅读量',
+    author: '作者',
+    last: '上一篇',
+    next: '下一篇'
   },
   footer: {
     content: '项目相对简单，如需更深层次地应用nuxt可以访问官网。喜欢的朋友可以到我的github下载，欢迎star，如果有bug可以提交issues，谢谢!'
