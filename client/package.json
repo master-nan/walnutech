@@ -1,7 +1,7 @@
 {
-  "name": "vuetify-admin-client",
+  "name": "walnutech-client",
   "version": "1.0.0",
-  "description": "client",
+  "description": "walnutech-client",
   "author": "master-nan",
   "private": true,
   "scripts": {

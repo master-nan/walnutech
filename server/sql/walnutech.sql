@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 本地
+ Source Server         : localhost_3306
  Source Server Type    : MySQL
- Source Server Version : 80011
- Source Host           : localhost:3308
- Source Schema         : vuetify_admin
+ Source Server Version : 50721
+ Source Host           : localhost:3306
+ Source Schema         : walnutech
 
  Target Server Type    : MySQL
- Target Server Version : 80011
+ Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 01/10/2018 23:42:32
+ Date: 19/10/2018 13:44:40
 */
 
 SET NAMES utf8mb4;
@@ -35,14 +35,44 @@ CREATE TABLE `m_admin_user` (
   `avatar` varchar(255) DEFAULT NULL COMMENT '头像路径',
   `status` tinyint(1) DEFAULT '1' COMMENT '当前状态0禁用',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of m_admin_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `m_admin_user` VALUES (1, '管理员', 'admin', 'cea3e8e1659582206e0be32539729e9f', NULL, NULL, NULL, NULL, 1538407799, 1538407812, NULL, 1);
+INSERT INTO `m_admin_user` VALUES (1, '管理员', 'admin', 'cea3e8e1659582206e0be32539729e9f', NULL, NULL, NULL, NULL, 1539911080, 1538407812, NULL, 1);
 INSERT INTO `m_admin_user` VALUES (2, '测试11', 'dev', 'c9a973c677899e92518c823c31527716', 0, 1, 2, 3, 1538407832, 1533287755, '', 1);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for m_article
+-- ----------------------------
+DROP TABLE IF EXISTS `m_article`;
+CREATE TABLE `m_article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `guid` varchar(255) DEFAULT NULL COMMENT '唯一标识',
+  `title` varchar(255) DEFAULT NULL,
+  `content` longtext,
+  `cover_id` int(11) DEFAULT NULL COMMENT '图片id',
+  `status` tinyint(1) DEFAULT '0' COMMENT '0草稿1发布2下架',
+  `create_at` datetime DEFAULT NULL,
+  `update_at` datetime DEFAULT NULL,
+  `click` int(11) DEFAULT '0' COMMENT '打开次数',
+  `keywords` varchar(255) DEFAULT NULL COMMENT '页面关键词',
+  `description` varchar(255) DEFAULT NULL COMMENT '页面描述',
+  `user_id` int(11) DEFAULT '0' COMMENT '后台用户id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of m_article
+-- ----------------------------
+BEGIN;
+INSERT INTO `m_article` VALUES (1, '80B6DD33-EE65-F64A-8BF9-2CA6FDD9DC0C', 'Centos部分工具命令', '<p><span style=\"font-size: large;\"><span style=\"font-weight: bold;\">apache：</span><br>启动  停止  重启<br>systemctl start httpd<br>systemctl stop httpd<br>systemctl restart httpd<br><br><span style=\"font-weight: bold;\">mysql：</span><br>启动  停止  重启<br>systemctl start mysqld<br>systemctl stop mysqld<br>systemctl restart mysqld<br><br><span style=\"font-weight: bold;\">php-fpm：</span><br>启动  停止  重启<br>systemctl start php-fpm<br>systemctl stop php-fpm<br>systemctl restart php-fpm<br><br>nginx：<br>启动  停止  重启<br>systemctl start nginx<br>systemctl stop nginx<br>systemctl restart nginx<br><br><span style=\"font-weight: bold;\">pm2：</span><br>pm2 list # 查看当前正在运行的进程<br>pm2 start all  # 启动所有应用<br>pm2 restart all  # 重启所有应用<br>pm2 stop all # 停止所有的应用程序<br>pm2 delete all # 关闭并删除所有应用<br>pm2 logs # 控制台显示所有日志<br>pm2 start 0  # 启动 id为 0的指定应用程序<br>pm2 restart 0  # 重启 id为 0的指定应用程序<br>pm2 stop 0 # 停止 id为 0的指定应用程序<br>pm2 delete 0 # 删除 id为 0的指定应用程序</span><br><span style=\"font-size: large;\">pm2 logs 0 # 控制台显示编号为0的日志<br>pm2 show 0  # 查看执行编号为0的进程<br>pm2 monit xxx # 监控名称为xxx的进程<br>pm2执行启动Nuxt项目命令<br>pm2 start npm --name \"xxx\" -- run star</span><br></p>', 0, 1, '2018-10-17 11:17:17', '2018-10-18 17:40:07', 123, 'Centos, apache, mysql, php-fpm, nginx, pm2', '', 1);
+INSERT INTO `m_article` VALUES (2, 'DAAD06B9-47DE-B24F-2D49-55069CC8E025', 'Github创建tag', '<p><span style=\"font-size: large;\">首先进入对应目录</span></p><p><span style=\"font-size: large;\">git tag&nbsp; （显示所有tags</span></p><p><span style=\"font-size: large;\">git tag -a v1.0&nbsp; &nbsp;（创建名为v1.0的tag</span></p><p><span style=\"font-size: large;\">git tag -a v1.0-m \'first version\'&nbsp; (创建带有附带信息的tag</span></p><p><span style=\"font-size: large;\">git push origin --tags&nbsp; &nbsp; &nbsp;(创建结束需要将tag推送到远端<br></span></p><p><span style=\"font-size: large;\">git tag -d v1.0&nbsp; &nbsp; （删除tag，同样，删除完以后也要执行上述推送tag</span><br></p>', 0, 1, '2018-10-17 11:25:06', '2018-10-18 17:39:46', 332, 'gihub, tag', '', 1);
+INSERT INTO `m_article` VALUES (4, 'E961E80D-6DCE-CCC8-4F98-E700922EFF26', '测试111111111', '<p>测试111111111</p>', 0, 0, '2018-10-17 16:10:23', '2018-10-17 16:10:23', 0, NULL, NULL, 1);
+INSERT INTO `m_article` VALUES (5, '5EDD3B5C-9E16-7A69-5F78-AAB2192CD279', '测试222222222', '<p>测试222222222</p>', 0, 0, '2018-10-17 16:10:34', '2018-10-17 16:10:34', 0, NULL, NULL, 1);
 COMMIT;
 
 -- ----------------------------
@@ -83,7 +113,15 @@ CREATE TABLE `m_files` (
   `type` varchar(16) DEFAULT NULL,
   `create_at` int(10) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of m_files
+-- ----------------------------
+BEGIN;
+INSERT INTO `m_files` VALUES (1, '0e58305c1d39c556ea30c03aa6577116.jpeg', 'b0b572237ad979e156f8ccfcc3c63ba19cc99b49', 'uploads/20181017/', 1, 'jpeg', 'avatar', 1539740300);
+INSERT INTO `m_files` VALUES (2, 'ab14e33725a1fa80c3be38ad89f22f27.jpg', 'e3b0f94a99151ad6e461194847ad90b02f787fbd', 'uploads/20181017/', 1, 'jpg', 'avatar', 1539742924);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for m_menu
@@ -104,7 +142,7 @@ CREATE TABLE `m_menu` (
   `status` tinyint(1) DEFAULT '1',
   `op` varchar(64) DEFAULT NULL COMMENT '后台判断权限',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='菜单';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='菜单';
 
 -- ----------------------------
 -- Records of m_menu
@@ -156,7 +194,7 @@ COMMIT;
 DROP TABLE IF EXISTS `m_rule`;
 CREATE TABLE `m_rule` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '名称',
+  `name` varchar(100) DEFAULT NULL COMMENT '名称',
   `rs` varchar(4000) DEFAULT NULL COMMENT '权限id',
   `remark` varchar(256) DEFAULT NULL COMMENT '备注',
   `status` tinyint(1) DEFAULT '1',
