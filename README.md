@@ -4,9 +4,6 @@
 
 基于vue的个人网站项目。使用了nuxt以及vuetify，nuxt和vuetify都是vue的通用框架，nuxt主要用于ui渲染提高渲染效率以及seo优化，提供了异步数据加载、中间件支持、布局支持等同时也集成了vue全家桶；vuetify是一个渐进式的ui框架，提供绝大部分组件以及适用于任何应用的解决方案。
 
-- [项目地址](https://github.com/master-nan/walnutech)
-- [在线地址](http://walnutech.com)
-
 
 ## 目录
 
